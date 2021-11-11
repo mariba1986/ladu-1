@@ -1,90 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Ladu</title>
-  <meta http-equiv="refresh" content="30" >
+  <meta http-equiv="refresh" content="30">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript" src="test.js"></script>
   <link rel="stylesheet" href="ladu.css">
-    <style>
-        </style>
-<title>Ladu</title>
-<script>
-    $(document).ready(function() {
-      $("div").click(function() {
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    th {
+      color: #fff;
+    }
+  </style>
+  <title>Ladu</title>
+  <script>
+    $(document).ready(function () {
+      $("div").click(function () {
         alert("Ladu 1: 3 toodet ladu 2: 6 toodet");
       });
-      
-      $.getJSON('https://ladu.tammik.eu/stock/1', function(data) {
-      test(data); 
-    });   
+
+      $.getJSON('https://ladu.tammik.eu/stock/1', function (data) {
+        test(data);
+      });
     });
   </script>
 
-<h2>Ettevõtte nimi</h2>
+  <h2>Ettevõtte nimi</h2>
 </head>
 
 <body>
-    
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand"></a>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link">Otsi</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Filtreeri</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Lisa uus toode</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link">Eemalda toode</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Halda</a>
-      </li>   
-    </ul>
-  </div>  
-</nav>
-    <table>
-        <tr>
-          <th>Teavituste tellimine</th>
-          <th>Toote ID</th>
-          <th>Tootekood</th>
-          <th>Kirjeldus</th>
-          <th>Kategooria</th>
-          <th>Ladu</th>
-          <th>Kogus</th>  
-        </tr>
-        <tr>
-          <td><form action="/action_page.php">
-            <input type="checkbox" id="teavitus" name="teavitus" value="telli">
-            <label for="teavitus"> </label><br>
-          </form></td>
-          <td><div id = "mydiv">
-            111
-         </div></td>
-          <td>333</td>
-          <td>333</td>
-          <td>333</td>
-          <td>333</td>
-          <td><div id = "mydiv">
-           Siia klikkides tuleb expandable ladude kaupa
-         </div></td>
-        </tr>
-        <tr>
-     
-      </table>
-      <div id = "employees"></div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand"></a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link">Otsi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Filtreeri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Lisa uus toode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Eemalda toode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Halda</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <table>
+    <tr>
+      <th>Teavituste tellimine</th>
+      <th>Toote ID</th>
+      <th>Tootekood</th>
+      <th>Kirjeldus</th>
+      <th>Kategooria</th>
+      <th>Ladu</th>
+      <th>Kogus</th>
+    </tr>
+    <tr>
+      <td>
+        <form action="/action_page.php">
+          <input type="checkbox" id="teavitus" name="teavitus" value="telli">
+          <label for="teavitus"> </label><br>
+        </form>
+      </td>
+      <td>
+        <div id="mydiv">
+          111
+        </div>
+      </td>
+      <td>333</td>
+      <td>333</td>
+      <td>333</td>
+      <td>333</td>
+      <td>
+        <div id="mydiv">
+          Siia klikkides tuleb expandable ladude kaupa
+        </div>
+      </td>
+    </tr>
+    <tr>
+
+  </table>
+  <div id="employees"></div>
 
 
+  <div class="row">
+    <div class="col">
+      <div class="card card-body">
+        <input id="search input" class="form-control" type="text">
+      </div>
+    </div>
+  </div>
+
+
+
+  <table class="table table-striped">
+    <tr class="bg-info">
+      <th data-colname="partID" data-order="desc">TooteID &#9650</th>
+      <th data-colname="partNum" data-order="desc">Tootenr &#9650</th>
+      <th data-colname="partDescription" data-order="desc">Kirjeldus &#9650</th>
+      <th data-colname="partClass" data-order="desc">Kategooria &#9650</th>
+      <th data-colname="WareHouseCode" data-order="desc">Ladu &#9650</th>
+      <th data-colname="qty" data-order="desc">Kogus &#9650</th>
+    </tr>
+
+    <tbody id="myTable">
+
+    </tbody>
+  </table>
+
+  <script>
+    var myArray = []
+
+    $('th').on('click', function () {
+      var column = $(this).data('column')
+      var order = $(this).data('order')
+      var text = $(this).html()
+      text = text.substring(0, text.length - 1)
+      //console.log('column was clicked', column, order)
+
+      if (order == 'desc') {
+        $(this).data('order', "asc")
+        myArray = myArray.sort((a, b) => a[column] > b[column] ? 1 : -1)
+        text += '&#9660' //selleks et nooleke vahetuks peale klikki
+      } else {
+        $(this).data('order', "desc")
+        myArray = myArray.sort((a, b) => a[column] < b[column] ? 1 : -1)
+        text += '&#9650'
+      }
+      $(this).html(text)
+      buildTable(myArray)
+    })
+
+    $.ajax({
+      method: 'GET',
+      url: 'https://ladu.tammik.eu/stock/1',
+      success: function (response) {
+        myArray = response.stock
+        buildTable(myArray)
+        console.log(myArray)
+
+      }
+    })
+    $('search-input').on('keyup', function () {
+      var value = $(this).val()
+      console.log('Value:', value)
+      var data = searchTable(value, myArray)
+      buildTable(data)
+    })
+
+    buildTable(myArray)
+
+    function searchTable(value, data) {
+      var filterData = []
+      for (var i = 0; i < data.length; i++) {
+        value = value.toLowerCase()
+        var partDescription = data[i].partDescription.toLowerCase()
+
+        if (partDescription.includes(value)) {
+          filterData.push(data[i])
+        }
+      }
+      return filterData
+    }
+
+    function buildTable(data) {
+      var table = document.getElementById('myTable')
+      table.innerHTML = ''
+      for (var i = 0; i < data.length; i++) {
+        var row = `<tr>
+                    <td>${data[i].partID}</td>
+                    <td>${data[i].partNum}</td>
+                    <td>${data[i].partDescription}</td>
+                    <td>${data[i].partClass}</td>
+                    <td>${data[i].WareHouseCode}</td>
+                    <td>${data[i].qty}</td>
+                  </tr>`
+        table.innerHTML += row
+
+
+      }
+    }
+
+  </script>
 </body>
+
 </html>
