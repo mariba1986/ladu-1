@@ -1,0 +1,1 @@
+function test(data) {document.getElementById("employees").innerHTML = data;}
