@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Toote lisamine</title>
+  <meta http-equiv="refresh" content="30">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="test.js"></script>
+  <link rel="stylesheet" href="ladu.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  </style>
+  <title>Ladu</title>
+  <script>
+      $.getJSON('https://ladu.tammik.eu/stock/1', function (data) {
+        test(data);
+      });
+  </script>
+
+  <h2>Ettevõtte nimi</h2>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand"></a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link">Otsi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Filtreeri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Lisa uus toode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Eemalda toode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Halda</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+    <form action="/action_page.php">
+      <input type="text" placeholder="Tootenimi" name="Tootenimi">
+      <input type="text" placeholder="Tootekood" name="Tootekood">
+      <input type="text" placeholder="Partii number" name="Partii number">
+      <input type="text" placeholder="Säilivusaeg" name="Säilivusaeg">
+      <input type="text" placeholder="Kogus" name="Kogus">
+      <input type="text" placeholder="Miinimumkoguse määramine" name="Miinimumkoguse määramine">  
+      <td>  Telli teavitus <form action="/action_page.php">
+        <input type="checkbox" id="teavitus" name="teavitus" value="telli">
+        Lot track <form action="/action_page.php">
+            <input type="checkbox" id="teavitus" name="teavitus" value="telli">
+        <label for="teavitus"> </label><br>
+      </form></td> 
+      </div>
+    </form>
+    <button onclick="document.getElementById('id01').style.display='block'">Vali ladu</button>
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/action_page.php">
+          <div class="container">
+            <td>  Ladu 1 <form action="/action_page.php">
+                <input type="checkbox" id="teavitus" name="teavitus" value="telli"> <br>
+                <td>  Ladu 2 <form action="/action_page.php">
+                    <input type="checkbox" id="teavitus" name="teavitus" value="telli">
+        
+      </div>
+    </div>
+   
+  </div>
+    
+ 
+ <br><button type="submit" class="signupbtn">Kinnita</button>
+
+
+</body>
+</html>

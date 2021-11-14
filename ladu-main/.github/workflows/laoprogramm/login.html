@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="index.js"></script>
+<link rel="stylesheet" href="ladu.css">
+<style>
+</style>
+</head>
+<body>
+
+
+    <form action="/action_page.php">
+      <input type="text" placeholder="Username" name="username">
+      <input type="text" placeholder="Password" name="psw">
+      <form class="clearfix">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Loo kasutaja</button>
+
+        <div id="id01" class="modal">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <form class="modal-content" action="/action_page.php">
+            <div class="container">
+              <h1>Loo kasutaja</h1>
+              <p>Sisesta kasutaja andmed.</p>
+              <hr>
+              <label for="email"><b>Eesnimi</b></label>
+              <input type="text" placeholder="Eesnimi" name="eesnimi" required>
+              <label for="email"><b>Perekonnanimi</b></label>
+              <input type="text" placeholder="Enter Perekonnanimi" name="Perekonnanimi" required>
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+        
+              <label for="psw"><b>Parool</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+        
+              <label for="psw-repeat"><b>Parool uuesti</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+              <br><button type="submit" class="signupbtn">Kinnita</button>
+              
+             
+        
+            
+        
+              
+            </div>
+          </form>
+        </div>
+        
+        <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+        <button type="submit" class="signupbtn">Logi sisse</button>
+      </div>
+     </form>
+    </form>
+    </form>
+ 
+
+
+
+</body>
+</html>
